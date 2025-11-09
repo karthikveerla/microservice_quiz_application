@@ -23,21 +23,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class QuestionController {
 
     @Autowired
-    QuestionService questionservice;
+    QuestionService questionService;
 
     @GetMapping("/allQuestions")   
     public ResponseEntity<List<Question>> allQuestions(){
-        return questionservice.getAllQuestions();
+        return questionService.getAllQuestions();
     }
 
     @GetMapping("/category/{cat}")
     public ResponseEntity<List<Question>> questionsByCategory(@PathVariable String cat){
-        return questionservice.getQuestionsByCategory(cat);
+        return questionService.getQuestionsByCategory(cat);
     }
 
     @PostMapping("/add")
     public ResponseEntity<String> addQuestion(@RequestBody QuestionRequest request) {
-        return questionservice.addQuestion(request);
+        return questionService.addQuestion(request);
     }
     
 }
